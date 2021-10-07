@@ -1,0 +1,17 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  font-size: 1.3rem;
+  padding: 15px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+  .inactive {
+    text-decoration: none;
+    margin: 5px;
+  }
+
+  .selected {
+    font-size: 1.5rem;
+  }
+}
