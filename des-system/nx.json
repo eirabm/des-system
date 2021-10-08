@@ -37,6 +37,9 @@
     "local": {
       "tags": []
     },
+    "store": {
+      "tags": []
+    },
     "ui": {
       "tags": []
     }

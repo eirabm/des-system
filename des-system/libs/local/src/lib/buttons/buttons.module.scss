@@ -1,0 +1,24 @@
+.buttonsPage {
+  padding: 50px;
+  height: 100%;
+
+  .style {
+    height: 20%;
+  }
+
+  .component {
+    width: 90%;
+    height: 20%;
+    background-color: #d0d4d4;
+
+    .propsBox {
+      margin: 10px;
+      border-radius: 6px;
+      height: 220px;
+      width: 200px;
+      padding: 20px;
+      float: right;
+      background-color: ghostwhite;
+    }
+  }
+}
