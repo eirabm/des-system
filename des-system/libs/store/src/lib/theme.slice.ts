@@ -1,15 +1,21 @@
-import {createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from '..';
 
-const initialState = false;
+export interface Darks {
+  isDark: boolean;
+}
+
+const initialState: Darks = {
+  isDark: false
+};
 
 const themeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers:{
-    changeTheme: (state) => {
-      state = !state;
-    }
+    changeTheme(state) {
+      state.isDark = !state.isDark;
+    },
   }
 })
 

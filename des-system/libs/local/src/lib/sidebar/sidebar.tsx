@@ -1,3 +1,4 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import styles from './sidebar.module.scss';
 
 import Switch from '@mui/material/Switch';
@@ -5,8 +6,8 @@ import Brightness2Icon from '@mui/icons-material/Brightness2';
 
 import { NavLink } from 'react-router-dom';
 
-import { useSelector, useDispatch } from 'react-redux'
-import { changeTheme } from '@ds/store'
+import { useDispatch, useSelector } from "react-redux";
+import { changeTheme, getThemeSelector } from '@ds/store'
 
 /* eslint-disable-next-line */
 export interface SidebarProps {}
@@ -15,9 +16,7 @@ export function Sidebar(props: SidebarProps) {
 
   const dispatch = useDispatch()
 
-  console.log(dispatch(changeTheme()))
-
-  const label = { inputProps: { 'aria-label': 'Switch demo' } };
+  const theme = useSelector(getThemeSelector) ? 'dark' : 'light'
 
   return (
     <div className={styles.sidebar}>
@@ -38,7 +37,7 @@ export function Sidebar(props: SidebarProps) {
         Spinner
       </NavLink>
 
-      <Brightness2Icon /> <Switch {...label} />
+      <Brightness2Icon /> <Switch onChange={() => {dispatch(changeTheme())}}/>
 
 
     </div>
