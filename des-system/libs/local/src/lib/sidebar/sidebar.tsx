@@ -4,22 +4,20 @@ import styles from './sidebar.module.scss';
 import Switch from '@mui/material/Switch';
 import Brightness2Icon from '@mui/icons-material/Brightness2';
 
+import { useContext } from "react";
 import { NavLink } from 'react-router-dom';
 
-import { useDispatch } from "react-redux";
-import { changeTheme } from '@ds/store'
+import { ThemeContext } from '@ds/local';
 
-import { useSelector } from 'react-redux';
-import { getThemeSelector } from '@ds/store';
 
 /* eslint-disable-next-line */
 export interface SidebarProps {}
 
 export function Sidebar(props: SidebarProps) {
-  const dispatch = useDispatch()
+  const themeCtx = useContext(ThemeContext);
+  const darkMode = themeCtx.state.isDark;
 
-  const isDark = useSelector(getThemeSelector)
-  const theme = isDark.isDark ? "dark-theme" : "light-theme"
+  const theme = darkMode ? "dark-theme" : "light-theme"
 
   return (
     <div className={`${styles.sidebar} ${styles[theme]}`}>
@@ -40,8 +38,7 @@ export function Sidebar(props: SidebarProps) {
         Spinner
       </NavLink>
 
-      <Brightness2Icon /> <Switch onChange={() => {dispatch(changeTheme())}}/>
-
+      <Brightness2Icon /> <Switch onChange={() => {darkMode ? themeCtx.dispatch({type: "LIGHTMODE"}) : themeCtx.dispatch({type: "DARKMODE"})}}/>
 
     </div>
   );

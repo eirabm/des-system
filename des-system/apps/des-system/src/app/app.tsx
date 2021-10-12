@@ -1,15 +1,17 @@
 import styles from './app.module.scss';
 
-import { Sidebar, About, Buttons } from '@ds/local';
+import { Sidebar, About, Buttons, ThemeContext } from '@ds/local';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { getThemeSelector } from '@ds/store';
+import { useContext } from "react";
+
 
 
 export function App() {
-  const isDark = useSelector(getThemeSelector)
-  const theme = isDark.isDark ? "dark-theme" : "light-theme"
+  const themeCtx = useContext(ThemeContext);
+  const darkMode = themeCtx.state.isDark;
+
+  const theme = darkMode ? "dark-theme" : "light-theme"
   
   return (
     <div className={`${styles.app} ${styles[theme]}`}>
