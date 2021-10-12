@@ -7,12 +7,18 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import { useSelector } from 'react-redux';
+import { getThemeSelector } from '@ds/store';
+
 /* eslint-disable-next-line */
 export interface ButtonsProps {}
 
 export function Buttons(props: ButtonsProps) {
+  const isDark = useSelector(getThemeSelector)
+  const theme = isDark.isDark ? "dark-theme" : "light-theme"
+
   return (
-    <div className={styles.buttonsPage}>
+    <div className={`${styles.buttonsPage} ${styles[theme]}`}>
       <div className={styles.title}>
         <p>@teachable/ui</p>
         <h1>Buttons</h1>

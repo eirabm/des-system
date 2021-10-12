@@ -1,23 +1,39 @@
 .buttonsPage {
-  padding: 50px;
   height: 100%;
 
   .style {
     height: 20%;
   }
 
+  &.light-theme {
+    background: #fff;
+    color: black;
+  }
+
+  &.dark-theme {
+    .component {
+      background-color: #22242b;
+
+      .propsBox {
+        color: #abb8c5;
+        background-color: #2f3440;
+      }
+    }
+  }
+
   .component {
-    width: 90%;
-    height: 20%;
+    display: flex;
     background-color: #d0d4d4;
+    padding: 10px;
+    margin: 0px -35px 0 -35px;
 
     .propsBox {
+      float: right;
       margin: 10px;
       border-radius: 6px;
       height: 220px;
       width: 200px;
-      padding: 20px;
-      float: right;
+      padding: 10px;
       background-color: ghostwhite;
     }
   }

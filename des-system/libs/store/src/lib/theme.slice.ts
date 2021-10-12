@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from '..';
 
-export interface Darks {
+export interface ThemeState {
   isDark: boolean;
 }
 
-const initialState: Darks = {
+const initialState: ThemeState = {
   isDark: false
 };
 

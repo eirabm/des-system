@@ -6,20 +6,23 @@ import Brightness2Icon from '@mui/icons-material/Brightness2';
 
 import { NavLink } from 'react-router-dom';
 
-import { useDispatch, useSelector } from "react-redux";
-import { changeTheme, getThemeSelector } from '@ds/store'
+import { useDispatch } from "react-redux";
+import { changeTheme } from '@ds/store'
+
+import { useSelector } from 'react-redux';
+import { getThemeSelector } from '@ds/store';
 
 /* eslint-disable-next-line */
 export interface SidebarProps {}
 
 export function Sidebar(props: SidebarProps) {
-
   const dispatch = useDispatch()
 
-  const theme = useSelector(getThemeSelector) ? 'dark' : 'light'
+  const isDark = useSelector(getThemeSelector)
+  const theme = isDark.isDark ? "dark-theme" : "light-theme"
 
   return (
-    <div className={styles.sidebar}>
+    <div className={`${styles.sidebar} ${styles[theme]}`}>
       
       <NavLink exact to="/" className={styles.inactive} activeClassName={styles.selected}>
         Overview
